@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Revisando Js</title>
+  </head>
+  <body>
+    <h1 id="1">
+      Vamos Revisar Js até ficarmos muitos bons em tudo que pudermos.<br />
+      essa é a nossa linguagem de frontEnd
+
+      <!--Aqui!
+      inciamos com esse titulo "enconrajador" sua função era demonstrar a manipulção
+      promovida pelo JS no H1. 
+      Aprendi que ao inserir um atributo id numa tag é posível
+      direcioná-la para um comando ou função posteriores feitos, por exemplo, 
+      pelo getElementBy()- função essa que procura o ID e Modifica seu conteúdo.-->
+    </h1>
+    <script>
+      let nome = "testanto variavéis no JS";
+      nome = "testando 2"; /*Aqui o teste de mudança da variavel sem neessidade de criar 
+      uma nova*/
+
+      document.getElementById("1").textContent = "Olá, " + nome;
+      /*aqui testamos a criação da variavel (let) e foi adicionado a ela uma função que 
+      lê o documento todo (document.) procurando, no caso, aquele determinado ID configurado
+      e insere no lugar, no caso, do H1, titulo diverso do incicial.*/
+    </script>
+  </body>
+</html>
