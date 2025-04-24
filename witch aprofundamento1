@@ -1,0 +1,179 @@
+[1mdiff --git a/README.md b/README.md[m
+[1mdeleted file mode 100644[m
+[1mindex ca60e24..0000000[m
+[1m--- a/README.md[m
+[1m+++ /dev/null[m
+[36m@@ -1,173 +0,0 @@[m
+[31m-# Revisão: Setup e Versionamento de Projeto JavaScript via CMD[m
+[31m-[m
+[31m-Este material reúne,  o **passo a passo**, tudo que vimos até agora usando **cmd.exe** no Windows referente aos interesses de *criação de projeto **JS** e Versionamento com **Git***  . Ao final, há instruções para rodar seu código diretamente e breves alternativas.[m
+[31m-[m
+[31m----[m
+[31m-# Sumário de atividades:[m
+[31m-[m
+[31m-- Instalou/verificou Node.js[m
+[31m-    [m
+[31m-- Criou pasta, inicializou npm[m
+[31m-    [m
+[31m-- Estruturou `src`/`dist`, criou `index.js`[m
+[31m-    [m
+[31m-- Abriu no VS Code[m
+[31m-    [m
+[31m-- Versionou com Git, criou branch[m
+[31m-    [m
+[31m-- Commitou e enviou ao GitHub[m
+[31m-    [m
+[31m-- Aprendeu a rodar no cmd e alternativas rápidas.[m
+[31m-[m
+[31m---- [m
+[31m-[m
+[31m-# Atividades realizadas[m
+[31m-## 1. Instalar e verificar Node.js + npm[m
+[31m-[m
+[31m-1. **Verificar se já está instalado**  [m
+[31m-   ```bat[m
+[31m-   node -v    # ex.: v18.15.0[m
+[31m-   npm -v     # ex.: 9.5.0[m
+[31m-[m
+[31m-Pra que instaler o NOde.Js e NPM?[m
+[31m-### 1.2 Por que instalar **Node.js** e **npm**?[m
+[31m-[m
+[31m-1. **Executar JavaScript fora do navegador**  [m
+[31m-   - Com o **Node.js** você roda scripts JS diretamente no seu computador (linha de comando), ideal para tarefas de automação, testes ou back-end simples.  [m
+[31m-   - Exemplo:  [m
+[31m-     ```bash[m
+[31m-     node src/index.js[m
+[31m-     ```[m
+[31m-[m
+[31m-2. **Gerenciar dependências e pacotes**  [m
+[31m-   - O **npm** (“Node Package Manager”) permite instalar, atualizar e remover bibliotecas de terceiros com um só comando:  [m
+[31m-     ```bash[m
+[31m-     npm install express[m
+[31m-     ```  [m
+[31m-   - Mantém suas dependências versionadas em `package.json`/`package-lock.json`.[m
+[31m-[m
+[31m-3. **Scripts e automação de tarefas**  [m
+[31m-   - No `package.json` você define atalhos (“scripts”) para compilar, testar, executar ou empacotar seu projeto:[m
+[31m-     ```jsonc[m
+[31m-     "scripts": {[m
+[31m-       "build": "webpack --mode production",[m
+[31m-       "start": "node src/index.js",[m
+[31m-       "test": "jest"[m
+[31m-     }[m
+[31m-     ```[m
+[31m-   - Depois é só usar:[m
+[31m-     ```bash[m
+[31m-     npm run build[m
+[31m-     ```[m
+[31m-[m
+[31m-4. **Ferramentas de desenvolvimento modernas**  [m
+[31m-   - Bundlers (Webpack, Parcel, Vite), transpiladores (Babel), linters (ESLint), test runners (Jest), servidores de desenvolvimento (live-server), e muito mais rodam sobre Node.js.[m
+[31m-[m
+[31m-5. **Criar servidores e APIs**  [m
+[31m-   - Com frameworks como **Express** ou **Koa**, você pode montar um servidor HTTP completo em poucos minutos:[m
+[31m-     ```js[m
+[31m-     const express = require('express');[m
+[31m-     const app = express();[m
+[31m-     app.get('/', (req, res) => res.send('Olá, mundo!'));[m
+[31m-     app.listen(3000);[m
+[31m-     ```[m
+[31m-[m
+[31m----[m
+[31m-[m
+[31m-> **Em resumo:**  [m
+[31m-> - **Node.js** fornece o runtime JavaScript no desktop/servidor.  [m
+[31m-> - **npm** é o ecossistema de pacotes e o sistema de scripts que agiliza seu fluxo de trabalho.[m
+[31m-[m
+[31m-## 2. Criar pasta do projeto e iniciar npm[m
+[31m-[m
+[31m-```[m
+[31m-1. cd C:\Users\jmtec\Desktop # verificar em que diretório a pasta está sendo criada[m
+[31m-2. `md RevisaoJs`         # cria a pasta[m
+[31m-3. `cd RevisaoJs `        # entra nela[m
+[31m-4. `npm init -y`          # gera package.json com valores padrão[m
+[31m-[m
+[31m-* ***`npm init -y`** salta o assistente e usa defaults.[m
+[31m-* ***Alternativa**: `npm init` sem `-y` para responder perguntas manualmente. - haverão perguntas no jason para a criação do projeto[m
+[31m-[m
+[31m-```[m
+[31m-[m
+[31m-## 3. Estruturar pastas e criar `index.js`[m
+[31m-[m
+[31m-```[m
+[31m-1. `md src dist`  # comando q cria a pasta[m
+[31m-2. `type nul > src\index.js`  [m
+[31m-[m
+[31m-* ***`type nul > …`** cria (ou zera) o arquivo vazio.[m
+[31m-* ***Alternativa**: `npm init` sem `-y` para responder perguntas manualmente.[m
+[31m-```[m
+[31m-[m
+[31m-## 4. Abrir no VS Code[m
+[31m-```[m
+[31m-`code .` comando que abre o Vscode dentro do CMD[m
+[31m-[m
+[31m-- **Abre** todo o projeto no VS Code.[m
+[31m-    [m
+[31m- * ***Alternativa**:  Use `start .` para abrir no Explorer e depois clique em seu editor favorito.[m
+[31m-```[m
+[31m-[m
+[31m-## 5. Escrever um `console.log`[m
+[31m-[m
+[31m- # no arquivo do VsCode Chamado: **src/index.js**: escreva:[m
+[31m-[m
+[31m-```[m
+[31m-console.log("Olá, JavaScript!");[m
+[31m-```[m
+[31m-[m
+[31m-## 6. Inicializar Git e primeiro commit[m
+[31m-[m
+[31m-```[m
+[31m-git init                          # cria .git/[m
+[31m-git add .                         # adiciona tudo ao staging[m
+[31m-git commit -m "Inicializa projeto JavaScript"[m
+[31m-```[m
+[31m-[m
+[31m-## 7. Criar e usar branch de aprofundamento[m
+[31m-[m
+[31m->> A nova branch foi denominada aprofundamento1[m
+[31m-[m
+[31m-```[m
+[31m-git checkout -b aprofundamento1   # cria e muda para ela.[m
+[31m-```[m
+[31m-[m
+[31m-[m
+[31m->> Após a criação da nova branch e de verificar através do `git branch` em que branch estamos trabalhando.  na nova branch os proximos passos são:[m
+[31m-## 8. Commit na nova branch: aprofundamento1[m
+[31m-[m
+[31m-```[m
+[31m-git add . # informa os arquivos que serão enviados ao github[m
+[31m-git commit -m "feat: adiciona log de saudação" # marca o titulo daquela atualização[m
+[31m-```[m
+[31m-[m
+[31m-## 9. Publicar branch no GitHub[m
+[31m-[m
+[31m-[m
+[31m-```[m
+[31m-git push -u origin aprofundamento1[m
+[31m-```[m
+[31m-[m
+[31m-* ***`-u`** vincula sua branch local à `origin/aprofundamento1` no remoto.[m
+[31m-[m
+[31m-## 10. Como rodar seu código no CMD[m
+[31m-[m
+[31m-```[m
+[31m-node src\index.js #direto no cmd, executa a pasta index.js[m
+[31m-```[m
+[31m-[m
+[31m-```[m
+[31m-"scripts": {[m
+[31m-  "start": "node src/index.js" #via Script npm em package.json[m
+[31m-}[m
+[31m-```[m
+[31m-[m
+[31m-```[m
+[31m-npm start[m
+[31m-```[m
+[31m-[m
+[31m-```[m
+[31m-node -e "console.log('Teste rápido'); # executa os comando do console [m
+[31m-```[m
