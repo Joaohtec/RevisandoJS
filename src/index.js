@@ -1,1 +1,1 @@
-console.log("olá!");
+console.log("olá, pessoas!");
